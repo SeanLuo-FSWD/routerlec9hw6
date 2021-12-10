@@ -1,0 +1,20 @@
+<div class="flex">
+  <select id="genres" name="genres" #genreInput (change)="onChangeGenre()">
+    <option value="all">all genres</option>
+    <option value="horror">horror</option>
+    <option value="comedy">comedy</option>
+    <option value="drama">drama</option>
+  </select>
+
+  <div>
+    <button (click)="onNavigate(false)">&lt;</button>
+    {{ page }} / {{ totalPages }}
+    <button (click)="onNavigate(true)">&gt;</button>
+  </div>
+</div>
+
+<div class="flex movielist">
+  <app-moviedetail *ngFor="let m of genreMovies" [movie]="m">
+    <!-- <p>{{ movie.title }}</p> -->
+  </app-moviedetail>
+</div>
